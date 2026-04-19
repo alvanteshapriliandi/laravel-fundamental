@@ -8,7 +8,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        $title = 'Dashboard';
+        $subtitle = 'Selamat datang di dashboard';
+        
+        return view('dashboard', compact('title', 'subtitle'));
     }
 
     public function students()

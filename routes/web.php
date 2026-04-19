@@ -8,14 +8,9 @@ Route::get('/', function () {
     return "Hallo, Dunia!";
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-
-Route::middleware(['auth'])->group(function () {
-    
-    Route::get('/students', [DashboardController::class, 'students']);
-    Route::get('/courses', [DashboardController::class, 'courses']);
-
-});
+Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/students', [DashboardController::class, 'students']);
+Route::get('/courses', [DashboardController::class, 'courses']);
 
 Route::get('/user/{nama}', function ($nama) {
     return "Halo " . $nama;
@@ -24,11 +19,6 @@ Route::get('/user/{nama}', function ($nama) {
 Route::get('/product/{id}/{name}', function ($id, $name) {
     return "Product $id: $name";
 });
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
